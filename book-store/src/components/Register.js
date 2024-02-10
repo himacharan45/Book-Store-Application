@@ -4,7 +4,7 @@ import axios from "axios";
 import './Register.css';
 import { Link,NavLink} from "react-router-dom";
 
-const roles = ["Select Role", "Admin", "Employee"];
+const roles = ["Select Role", "Admin", "User"];
 
 const Register = () => {
     const initialFormData = {
