@@ -6,6 +6,9 @@ import Register from './components/Register';
 import Menu from './components/Menu';
 import Home from './components/Home';
 import Books from './components/Books';
+import AddBook from './components/AddBook';
+import UpdateBook from './components/UpdateBook';
+import DeleteBook from './components/DeleteBook';
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
           <Route path='/Login' element={<Login />} />
           <Route path="/signup" element={<Register />} />
           <Route path="/Books" element={<Books/>} />
+          <Route path="/AddBook" element={<AddBook/>} />
+          <Route path="/UpdateBook" element={<UpdateBook/>} />
+          <Route path='/DeleteBook' element={<DeleteBook/>} />
         </Routes>
       </BrowserRouter>
     </div>

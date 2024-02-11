@@ -10,8 +10,8 @@ namespace BookStoreApplication.Interfaces
         BookDTO GetBookById(int id);
         IEnumerable<BookDTO> GetBookByAuthor(string author);
         IEnumerable<BookDTO> GetAllBooks();
-        BookDTO GetBookByTitle(string title);
-        BookDTO GetBooksByGenre(string genre);
+        IEnumerable<BookDTO> GetBookByTitle(string title);
+        IEnumerable<BookDTO> GetBooksByGenre(string genre);
        // BookDTO GetBookByAuthor(string author);
 
     }

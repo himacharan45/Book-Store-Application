@@ -40,6 +40,19 @@ const Menu = () => {
                   <NavLink to="/Home" className={`nav-link ${location.pathname === '/Home' ? 'active-link' : ''}`}>
                     <FaHome /> Home
                   </NavLink>
+
+                  <NavLink to="/AddBook" className={`nav-link ${location.pathname === '/AddBook' ? 'active-link' : ''}`}>
+                    <FaHome /> Add Books
+                  </NavLink>
+
+                  <NavLink to="/UpdateBook" className={`nav-link ${location.pathname === '/UpdateBook' ? 'active-link' : ''}`}>
+                    <FaHome /> Update Book
+                  </NavLink>
+
+                  <NavLink to="/DeleteBook" className={`nav-link ${location.pathname === '/DeleteBook' ? 'active-link' : ''}`}>
+                    <FaHome /> Delete Book
+                  </NavLink>
+
                   <div className="nav-link logout-button" onClick={logout}>
                     <FaSignOutAlt /> Logout
                   </div>

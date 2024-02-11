@@ -1,9 +1,6 @@
-/* Books.css */
-
-/* Books.css */
 
 .booksContainer {
-    padding-top: 50px;
+    padding-top: 80px;
     text-align: center; /* Center the text */
   }
   
@@ -19,6 +16,7 @@
     font-size: 2em; /* Adjust the font size */
     margin-bottom: 20px; /* Add some spacing below the heading */
     font-weight: bold; /* Make the text bold */
+    color: whitesmoke;
   }
     
   /* BookCard.css */

@@ -19,9 +19,9 @@ const Books = () => {
           if (searchType === "author") {
             response = await axios.get(`https://localhost:7034/api/Book/author/${searchTerm}`);
           } else if (searchType === "title") {
-            response = await axios.get(`https://localhost:7034/api/Book/bytitle/${searchTerm}`);
+            response = await axios.get(`https://localhost:7034/api/Book/title/${searchTerm}`);
           } else if (searchType === "genre") {
-            response = await axios.get(`https://localhost:7034/api/Book/bygenre/${searchTerm}`);
+            response = await axios.get(`https://localhost:7034/api/Book/genre/${searchTerm}`);
           }
         } else {
           // If no search term, fetch all books

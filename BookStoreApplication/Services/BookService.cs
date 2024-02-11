@@ -109,23 +109,22 @@ namespace BookStoreApplication.Services
             }
         }
 
-        public BookDTO GetBookByTitle(string title)
+        public IEnumerable<BookDTO> GetBookByTitle(string title)
         {
+
             try
             {
-                var bookByTitle = _bookRepository.GetAll().FirstOrDefault(b => b.Title == title);
-                if (bookByTitle == null)
-                    return null;
-                return new BookDTO
+                var booksByTitle = _bookRepository.GetAll().Where(b => b.Title == title);
+                return booksByTitle.Select(b => new BookDTO
                 {
-                    BookId = bookByTitle.BookId,
-                    Title = bookByTitle.Title,
-                    Author = bookByTitle.Author,
-                    Genre = bookByTitle.Genre,
-                    ISBN = bookByTitle.ISBN,
-                    PublishDate = bookByTitle.PublishDate,
-                    Username = bookByTitle.Username
-                };
+                    BookId = b.BookId,
+                    Title = b.Title,
+                    Author = b.Author,
+                    Genre = b.Genre,
+                    ISBN = b.ISBN,
+                    PublishDate = b.PublishDate,
+                    Username = b.Username
+                });
             }
             catch (Exception ex)
             {
@@ -134,25 +133,21 @@ namespace BookStoreApplication.Services
             }
         }
 
-        public BookDTO GetBooksByGenre(string genre)
+        public IEnumerable<BookDTO> GetBooksByGenre(string genre)
         {
             try
             {
-                var existingBook = _bookRepository.GetAll().FirstOrDefault(b => b.Genre == genre);
-                if (existingBook != null)
+                var booksByGenre = _bookRepository.GetAll().Where(b => b.Genre == genre);
+                return booksByGenre.Select(b => new BookDTO
                 {
-                    return new BookDTO
-                    {
-                        BookId = existingBook.BookId,
-                        Title = existingBook.Title,
-                        Author = existingBook.Author,
-                        Genre = existingBook.Genre,
-                        ISBN = existingBook.ISBN,
-                        PublishDate = existingBook.PublishDate,
-                        Username = existingBook.Username
-                    };
-                }
-                throw new BookNotFoundException();
+                    BookId = b.BookId,
+                    Title = b.Title,
+                    Author = b.Author,
+                    Genre = b.Genre,
+                    ISBN = b.ISBN,
+                    PublishDate = b.PublishDate,
+                    Username = b.Username
+                });
             }
             catch (Exception ex)
             {
