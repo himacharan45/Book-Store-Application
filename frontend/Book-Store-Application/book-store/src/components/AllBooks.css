@@ -1,0 +1,69 @@
+/* AllBooks.css */
+
+.books-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top:80px;
+    background-color: #f8f8f8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .search-container {
+    margin-bottom: 20px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .books-list {
+    display: grid;
+    gap: 20px;
+  }
+  
+  .book-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h3 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 600px) {
+    .books-container {
+      padding: 15px;
+    }
+  
+    input {
+      margin-bottom: 10px;
+    }
+  
+    .books-list {
+      grid-template-columns: 1fr;
+    }
+  
+    .book-card {
+      padding: 10px;
+    }
+  }
+  
