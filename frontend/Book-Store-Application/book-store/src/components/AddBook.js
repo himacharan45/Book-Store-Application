@@ -36,7 +36,6 @@ const AddBook = () => {
 
       if (response.status === 200) {
         console.log('Book added successfully');
-        // Optionally, you can reset the form after a successful submission
         setFormData({
           title: '',
           author: '',

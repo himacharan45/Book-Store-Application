@@ -9,7 +9,10 @@ import Books from './components/Books';
 import AddBook from './components/AddBook';
 import AllBooks from './components/AllBooks';
 import UpdateDelete from './components/UpdateDelete';
+import axios from 'axios';
 
+const access_token = localStorage.getItem("token");
+axios.defaults.headers.common['Authorization'] = `Bearer ${access_token}`;
 function App() {
   return (
     <div>

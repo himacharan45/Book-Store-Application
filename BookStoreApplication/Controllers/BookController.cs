@@ -1,6 +1,8 @@
 ﻿using BookStoreApplication.Exceptions;
 using BookStoreApplication.Interfaces;
 using BookStoreApplication.Models.DTOs;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +10,7 @@ namespace BookStoreApplication.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("reactApp")]
     public class BookController : ControllerBase
     {
         private readonly IBookService _bookService;
@@ -17,6 +20,7 @@ namespace BookStoreApplication.Controllers
             _bookService = bookService;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult AddBook([FromBody] BookDTO bookDTO)
         {
@@ -34,6 +38,7 @@ namespace BookStoreApplication.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin,User")]
         [HttpGet]
         public IActionResult GetAllBooks()
         {
@@ -51,6 +56,7 @@ namespace BookStoreApplication.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin,User")]
         [HttpGet("{id}")]
         public IActionResult GetBookById(int id)
         {
@@ -68,6 +74,7 @@ namespace BookStoreApplication.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin,User")]
         [HttpGet("author/{author}")]
         public IActionResult GetBooksByAuthor(string author)
         {
@@ -85,6 +92,7 @@ namespace BookStoreApplication.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin,User")]
         [HttpGet("title/{title}")]
         public IActionResult GetBookByTitle(string title)
         {
@@ -102,6 +110,7 @@ namespace BookStoreApplication.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin,User")]
         [HttpGet("genre/{genre}")]
         public IActionResult GetBooksByGenre(string genre)
         {
@@ -124,6 +133,7 @@ namespace BookStoreApplication.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public IActionResult UpdateBook(int id, [FromBody] BookDTO bookDTO)
         {
@@ -145,6 +155,8 @@ namespace BookStoreApplication.Controllers
         }
 
         [HttpDelete("{id}")]
+
+        [Authorize(Roles = "Admin")]
         public IActionResult DeleteBook(int id)
         {
             try

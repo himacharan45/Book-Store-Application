@@ -142,7 +142,7 @@ const signUp = async (event) => {
                         <button className="btn btn-primary button" onClick={signUp}>
                             Sign Up
                         </button>
-                        <button className="btn btn-danger button ml-2">Cancel</button>
+                        <button className="btn btn-danger button ml-2">Clear</button>
                     </div>
 
                     <div className="login-link">
